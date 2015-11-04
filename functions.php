@@ -1,4 +1,34 @@
 <?php
+
+	require_once("../config_global.php");
+	require_once("User.class.php");
+	
+	$database = "if15_ruzjaa_3";
+	
+	session_start();
+	
+	//
+	$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
+	$mysqli = new mysqli($server_username, $server_password, $database);
+	
+	//saadan uhenduse classi ja loon uue classi
+	$User = new User($mysqli);
+	
+	//var_dump($User->connection);
+	
+	
+	/*
+	$name = "Ruslan";
+	Hello($name);
+	
+	function hello($name){
+		echo $name;
+	}
+	*/
+	
+
+	/*
+	
 	require_once("../config_global.php");
 	$database = "if15_ruzjaa_3";
 
@@ -69,4 +99,5 @@
 		
 		$mysqli->close();
 	}
+	*/
 ?>

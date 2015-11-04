@@ -47,7 +47,8 @@
 				$hash = hash("sha512", $password);
 				
 				// kasutaja sisselogimise fn, failist functions.php
-				loginUser($email, $hash);
+				
+				$User->loginUser($email, $hash);
 				
 				
 			}
@@ -79,7 +80,9 @@
 					
 					// kasutaja loomise fn, failist functions.php,
 					// saadame kaasa muutujad
-					createUser($create_email, $hash);
+					
+					//fn User klassist
+					$User->createUser($create_email, $hash);
 					
 				}
 		} // create if end
