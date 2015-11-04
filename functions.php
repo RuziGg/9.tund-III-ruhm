@@ -3,15 +3,13 @@
 	require_once("../config_global.php");
 	require_once("User.class.php");
 	
-	$database = "if15_ruzjaa_3";
+	$database = "if15_romil_3";
 	
 	session_start();
 	
-	//
-	$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
-	$mysqli = new mysqli($server_username, $server_password, $database);
+	$mysqli = new mysqli($servername, $server_username, $server_password, $database);
 	
-	//saadan uhenduse classi ja loon uue classi
+	//saadan ühenduse classi ja loon uue classi
 	$User = new User($mysqli);
 	
 	//var_dump($User->connection);
