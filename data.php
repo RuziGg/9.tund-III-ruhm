@@ -64,6 +64,11 @@
 		} else {
 			if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 				echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+				
+				//see koht ab'i salvestamiseks
+				
+				header("Location: data.php");
+				
 			} else {
 				echo "Sorry, there was an error uploading your file.";
 			}
@@ -72,7 +77,15 @@
 	}
 	
 	
+	//kustuta pilt
 	
+	if(isset($_GET["delete"])){
+		
+		unlink($target_file);
+		
+		header("Location: data.php");
+		
+	}
 	
 	
 	
@@ -112,7 +125,7 @@
 	backfround-position: center center;
 	background-size: cover;" ></div>
 	
-	<a href="?delete=1">Delete profile pix</a>
+	<a href="?delete=1">Delete profile pic</a>
 
 
 
@@ -125,3 +138,25 @@
 </form>
 
 <?php endif; ?>
+
+
+
+<?php
+	
+	$file_array = scandir($target_dir);
+	var_dump($file_array);
+	
+	// iga faili nime kohta
+	for($i = 0; $i < count($file_array)){
+		
+		echo ",a href='".$target_dir.$file_array[$i]."'>".$file_array[$i]."</a>";
+		
+		
+	}
+	
+	
+
+
+
+
+?>
